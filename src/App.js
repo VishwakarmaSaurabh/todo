@@ -49,11 +49,15 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           handleKeypress={this.handleKeypress}
         />
-        <div className="todo-list-container">
-          {tasks.map((task) => (
-            <Task key={task.id} task={task} />
-          ))}
-        </div>
+        {tasks.length > 0 ? (
+          <div className="todo-list-container">
+            {tasks.map((task) => (
+              <Task key={task.id} task={task} />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
