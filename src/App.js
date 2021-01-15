@@ -1,6 +1,7 @@
 import { React, Component } from "react";
 import "./App.css";
 import Header from "./component/header/Header";
+import Task from "./component/task/Task";
 
 class App extends Component {
   constructor() {
@@ -50,7 +51,7 @@ class App extends Component {
         />
         <div className="todo-list-container">
           {tasks.map((task) => (
-            <p key={task.id}>{task.task}</p>
+            <Task key={task.id} task={task} />
           ))}
         </div>
       </div>
