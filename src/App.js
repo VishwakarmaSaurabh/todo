@@ -30,7 +30,6 @@ class App extends Component {
                 ],
                 newTask: "",
             });
-            this.saveToLocalStorage();
         }
     };
 
@@ -61,20 +60,21 @@ class App extends Component {
         });
     };
 
-    saveToLocalStorage = () => {
-        let todos = window.localStorage;
-        todos.setItem("todos", this.state.tasks);
+    componentDidMount = () => {
+        let todos = localStorage.getItem("todos");
+        if (todos !== null) {
+            this.setState({ tasks: JSON.parse(todos) });
+        }
     };
 
-    onLoadUpadateState = () => {
-        let todos = window.localStorage.getItem("todos");
-        console.log(todos);
+    componentDidUpdate = () => {
+        localStorage.setItem("todos", JSON.stringify(this.state.tasks));
     };
 
     render() {
         return (
             <div className="App">
-                <h1>Sauvi's Todo</h1>
+                <h1 className="title">Sauvi's Todo</h1>
                 <div className="input-box-container">
                     <input
                         type="text"
