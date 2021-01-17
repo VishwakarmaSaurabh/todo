@@ -74,21 +74,23 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <h1 className="title">Sauvi's Todo</h1>
-                <div className="input-box-container">
-                    <input
-                        type="text"
-                        placeholder="new task"
-                        onChange={this.inputChangeHandler}
-                        onKeyPress={this.enterKeyPressHandler}
-                        value={this.state.newTask}
-                        autoFocus
-                    ></input>
-                    <FaPlusCircle
-                        className="fa-plus"
-                        onClick={this.clickHandler}
-                    />
-                </div>
+                <header>
+                    <h1 className="title">Sauvi's Todo</h1>
+                    <div className="input-box-container">
+                        <input
+                            type="text"
+                            placeholder="new task"
+                            onChange={this.inputChangeHandler}
+                            onKeyPress={this.enterKeyPressHandler}
+                            value={this.state.newTask}
+                            autoFocus
+                        ></input>
+                        <FaPlusCircle
+                            className="fa-plus"
+                            onClick={this.clickHandler}
+                        />
+                    </div>
+                </header>
                 <div className="todos">
                     {this.state.tasks.map((todo) => (
                         <div className="todo" key={todo.id}>
